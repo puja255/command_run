@@ -4,7 +4,7 @@ pipeline {
   }
   environment {
     ORG = 'puja255'
-    APP_NAME = 'bits'
+    APP_NAME = 'command_run'
     CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
   }
   stages {
@@ -56,7 +56,7 @@ pipeline {
       }
       steps {
         container('python') {
-          dir('./charts/bits') {
+          dir('./charts/command_run') {
             sh "jx step changelog --version v\$(cat ../../VERSION)"
 
             // release the helm chart
